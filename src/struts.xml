@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <package name="default" extends="struts-default">
+        <action name="search" class="action.Search">
+            <result>/books.jsp</result>
+        </action>
+        <action name="showDetail" class="action.ShowDetail">
+            <result>/detail.jsp</result>
+        </action>
+        <action name="delete" class="action.Delete">
+            <result type="redirect">${url}</result>
+        </action>
+        <action name="edit" class="action.Edit">
+            <result>/edit.jsp</result>
+        </action>
+        <action name="submitOldBook" class="action.Edit" method="submitOldBook">
+            <result type="redirect">${url}</result>
+        </action>
+        <action name="addAuthor" class="action.AddAuthor">
+            <result>/newAuthor.jsp</result>
+        </action>
+        <action name="submitAuthor" class="action.AddAuthor" method="submitAuthor">
+            <result type="redirect">${url2}&amp;url=${url}</result>
+        </action>
+        <action name="addBook" class="action.AddBook">
+            <result>/newBook.jsp</result>
+        </action>
+        <action name="submitNewBook" class="action.AddBook" method="submitNewBook">
+            <result type="redirect">${url}</result>
+        </action>
+        <action name="*">
+            <result>/index.jsp</result>
+        </action>
+    </package>
+</struts>
